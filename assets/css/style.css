@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/bg2000.png');
+    background-repeat: no-repeat;
+
+}
+
+#jawa_old {
+    background-image: url('../img/jawa.png');
+    background-repeat: no-repeat;
+    width: 956px;
+    height: 313px;
+    top: 230px;
+    left: 275px;
+    position: fixed;
+}
+
+
+
+#terminalku_old {
+    position: fixed;
+    top: 20px;
+    left: 600px;
+    width: 214px;
+    height: 247px;
+    background-image: url('../img/terminalku.png');
+    background-repeat: no-repeat;
+}
+
+
+#footer_old {
+    position: fixed;
+    left: 0;
+    width: 1366px;
+    height: 56px;
+    bottom:0px;
+    background-image: url('../img/footer.png');
+    background-repeat: no-repeat;
+}
+
+
+#footer {
+    position: absolute;
+    background-image: url('../img/footer_new.png');
+    background-repeat: repeat-x;
+    height: 55px;
+    width: 100%;
+    bottom: 0;
+
+}
+
+#copyright {
+    background-image: url('../img/copyright.png');
+    background-repeat: repeat-x;
+    height: 30px;
+    width: 370px;
+
+}
+
+#terminalku {
+    position: absolute;
+    background-image: url('../img/terminalku_new.png');
+    background-repeat: no-repeat;
+    height: 190px;
+    width: 164px;
+}
+
+@media only screen and (min-width: 1024px) {
+    #jawa {
+        width: 956px;
+        height: 313px;
+        background-image: url('../img/jawa.png');
+    }
+    #menu
+    {
+        display:none;
+    }
+    #jogja {
+        position: absolute;
+        top: 116px;
+        left: 496px;
+        width: 60px;
+        height: 93px;
+        background-image: url('../img/icon_jogja.png');
+        background-repeat: no-repeat;
+    }
+
+    #jogja:hover {
+        background-image: url('../img/icon_jogja_hover.png');
+    }
+
+
+    #solo {
+        position: absolute;
+        top: 60px;
+        left: 601px;
+        width: 56px;
+        height: 75px;
+        background-image: url('../img/icon_solo.png');
+        background-repeat: no-repeat;
+    }
+
+    #solo:hover {
+        background-image: url('../img/icon_solo_hover.png');
+    }
+
+
+    #klaten {
+        position: absolute;
+        top: 136px;
+        left: 552px;
+        width: 65px;
+        height: 93px;
+        background-image: url('../img/icon_klaten.png');
+        background-repeat: no-repeat;
+    }
+
+    #klaten:hover {
+        background-image: url('../img/icon_klaten_hover.png');
+    }
+
+    #surabaya {
+        position: absolute;
+        top: 81px;
+        left: 728px;
+        width: 65px;
+        height: 93px;
+        /*border: 3px solid red;*/
+        background-image: url('../img/icon_surabaya.png');
+        background-repeat: no-repeat;
+    }
+
+    #surabaya:hover {
+        background-image: url('../img/icon_surabaya_hover.png');
+    }
+}
+@media only screen and (max-width: 768px) {
+    #jawa {
+        display:none;
+        /*width:768px;*/
+        /*;
+        height: 50%;
+        margin:0px;
+        background-image: url('../img/jawa.png');
+        background-size: 100%;*/
+    }
+    #jogja {
+        position: absolute;
+        background-image: url('../img/icon_jogja.png');
+        background-repeat: no-repeat;
+    }
+
+    #jogja:hover {
+        background-image: url('../img/icon_jogja_hover.png');
+    }
+
+
+    #solo {
+        position: absolute;
+        background-image: url('../img/icon_solo.png');
+        background-repeat: no-repeat;
+    }
+
+    #solo:hover {
+        background-image: url('../img/icon_solo_hover.png');
+    }
+
+
+    #klaten {
+        position: absolute;
+        background-image: url('../img/icon_klaten.png');
+        background-repeat: no-repeat;
+    }
+
+    #klaten:hover {
+        background-image: url('../img/icon_klaten_hover.png');
+    }
+
+    #surabaya {
+        position: relative;
+        top: -10px;
+        /*left: 40px;*/
+        width: 30px;
+        height: 40px;
+        /*border: 3px solid red;*/
+        background-image: url('../img/icon_surabaya.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        float:left;
+    }
+
+    #surabaya:hover {
+        background-image: url('../img/icon_surabaya_hover.png');
+    }
+
+}
+
+

@@ -1,0 +1,67 @@
+		if($terminal == "giwangan"){
+			if($cctvid == "jg1")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/0c448fac-f403-411f-a99a-90cd17441361/mp4";
+			else if($cctvid == "jg2")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/-/mp4";
+			else if($cctvid == "jg3")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/-/mp4";
+			else if($cctvid == "jg4")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/f8124a62-8e3c-4b99-afba-fa900cf9ff10/mp4";
+			else if($cctvid == "jg5")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/3f2fbf63-368f-452e-8424-137c88613403/mp4";
+			else if($cctvid == "jg6")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/6df639cc-9b34-4cc3-8062-23d650c576d5/mp4";
+		}
+		else if($terminal == "soekarno"){
+			if($cctvid == "kl1")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/b1db04ab-d030-4f77-9272-c7d97ed70e6a/mp4";
+			else if($cctvid == "kl2")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/7fa65726-40e1-42e5-b439-afb1b9fdcf66/mp4";
+			else if($cctvid == "kl3")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/cd52de4a-9a6c-497e-806d-5a0e17d4dc53/mp4";
+			else if($cctvid == "kl4")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/19ac5477-db64-4339-81ca-eeccdb852405/mp4";
+			else if($cctvid == "kl5")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/edb56316-2488-4221-bcdd-bfdaa61ae066/mp4";
+			else if($cctvid == "kl6")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/bb7ded47-4fa6-491a-a618-e0dd424817eb/mp4";
+		}
+		else if($terminal == "tirtonadi"){
+			if($cctvid == "sl1")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/51302a4b-5ea4-4d54-a884-dfe29747f780/mp4";
+			else if($cctvid == "sl2")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/552485c5-27f0-4d8f-9389-5f687cf1e548/mp4";
+			else if($cctvid == "sl3")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/dd72020b-18a8-49f9-a1cd-605f00220508/mp4";
+			else if($cctvid == "sl4")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/4d0783ac-0d68-4c45-8440-451a2a55c7ce/mp4";
+			else if($cctvid == "sl5")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/304c3c86-73ed-4d2c-a25a-4edad14ef9a5/mp4";
+			else if($cctvid == "sl6")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/8dce6c88-eb46-402e-8307-ac6ff7cd7de2/mp4";
+		}
+		else if($terminal == "purabaya"){
+			if($cctvid == "sd1")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/9a98fa5e-c9d2-40e6-9a9f-e6f049a13fc2/mp4";
+			else if($cctvid == "sd2")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/0334245e-79f3-42eb-8bda-ad991935ce43/mp4";
+			else if($cctvid == "sd3")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/f440687e-722f-4797-b95d-bf5bceefbc94/mp4";
+			else if($cctvid == "sd4")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/b18c5818-d3f8-444e-b057-1d6c9d9eec5c/mp4";
+			else if($cctvid == "sd5")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/9df51a27-dba8-4318-8f6f-46bbb8243146/mp4";
+			else if($cctvid == "sd6")
+				$folder = "D:/JOB/RAMTEC/CCTV/Terbaru/74b5e886-2da2-4607-b8d1-b09c28e296f8/mp4";
+		}
+
+		0c448fac-f403-411f-a99a-90cd17441361 
+		2017-03-04 02_47_55_036.mp4 10
+		2017-03-04 02_53_34_859.mp4 14
+		2017-03-04 00_56_53_290.mp4 15
+		2017-03-04 01_08_22_586.mp4 16
+		2017-03-04 01_43_28_391.mp4 17
+		2017-03-04 01_11_22_731.mp4 24
+
+http://203.130.228.59:8887/terminal/playvideo/3f2fbf63-368f-452e-8424-137c88613403/2017-03-03 23_11_43_606.mp4 19
+http://203.130.228.59:8887/terminal/playvideo/3f2fbf63-368f-452e-8424-137c88613403/2017-03-04 00_35_52_089.mp4 20

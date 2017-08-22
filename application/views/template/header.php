@@ -1,0 +1,1 @@
+<header class="navbar navbar-fixed-top">	<div class="navbar-inner">		<div class="container">			<img src="<?PHP echo $dirasset; ?>img/header.png" />		</div>	</div></header>
