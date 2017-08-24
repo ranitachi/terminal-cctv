@@ -1,6 +1,7 @@
 <?PHP
 //error_reporting(0);
-define("RECORDING_DIR","D:/Recording/");
+define("RECORDING_DIR","/home/fachran/Videos/");
+// define("RECORDING_DIR","D:/Recording/");
 
 function koneksi()
 {
@@ -19,7 +20,7 @@ function cekrecord($table,$klm_vl=array())
 {
 	$kon=koneksi();
 	$kl='';
-	foreach ($klm_vl as $k => $v) 
+	foreach ($klm_vl as $k => $v)
 	{
 		$kl.= $k.'="'.$v.'" and ';
 	}
@@ -38,12 +39,12 @@ function updaterecord($table,$up=array(),$wh=array())
 {
 	$kon=koneksi();
 	$set=$whr='';
-	foreach ($up as $k => $v) 
+	foreach ($up as $k => $v)
 	{
 		$set.= $k.'="'.$v.'",';
 	}
 
-	foreach ($wh as $k => $v) 
+	foreach ($wh as $k => $v)
 	{
 		$whr.= $k.'="'.$v.'" and';
 	}
@@ -71,10 +72,10 @@ function createtable($table)
 	   $create = "CREATE TABLE ".$table." (
 			id int NOT NULL primary key auto_increment,
 			folder varchar (255),
-			nama_kamera varchar (255), 
-			lokasi_kamera varchar (255), 
-			kode varchar (50), 
-			status_tampil char (1) 
+			nama_kamera varchar (255),
+			lokasi_kamera varchar (255),
+			kode varchar (50),
+			status_tampil char (1)
 		)";
 		mysqli_query($kon,$create);
 	    //I can't find it...
@@ -86,8 +87,8 @@ function selectrecord($table,$wh=array())
 {
 	$kon=koneksi();
 	$whr='';
-	
-	foreach ($wh as $k => $v) 
+
+	foreach ($wh as $k => $v)
 	{
 		$whr.= $k.'="'.$v.'" and';
 	}
@@ -113,12 +114,12 @@ function selectrecord($table,$wh=array())
 function getFileList($dir, &$listfile = array())
 {
 	$extList = array("acsm", "asf", "acsi", "mp4");
-	
+
 	$files = scandir($dir);
 
 	foreach($files as $key => $value){
 		$path = realpath($dir.DIRECTORY_SEPARATOR.$value);
-		if(!is_dir($path)) 
+		if(!is_dir($path))
 		{
 			if(in_array(strtolower(pathinfo($path, PATHINFO_EXTENSION)), $extList))
 			{
@@ -127,7 +128,7 @@ function getFileList($dir, &$listfile = array())
 			}
 		} else if($value != "." && $value != "..") {
 			getFileList($path, $listfile);
-			
+
 			if(in_array(strtolower(pathinfo($path, PATHINFO_EXTENSION)), $extList))
 			{
 				$filename = pathinfo($path, PATHINFO_FILENAME);
@@ -135,7 +136,7 @@ function getFileList($dir, &$listfile = array())
 			}
 		}
 	}
-	
+
 	return $listfile;
 }
 
@@ -190,7 +191,7 @@ function deleteFiles($fl = array())
 {
 	$fr = array_slice($fl, 10, count($fl));
 	while($fr) unlink(array_pop($fr));
-	
+
 	$fl = array_slice($fl, 0, 10);
 	return $fl;
 }
@@ -208,12 +209,12 @@ function getVideoDuration($f)
 {
 	//Change current directory
 	chdir("C:\FFmpegTool\bin");
-	
+
 	//Get duration process
 	$output = shell_exec('ffmpeg -i "' . $f . '" 2>&1');
 	$regexp = "/Duration: ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}).([0-9]{1,2})/";
 	preg_match($regexp, $output, $matches);
-	
+
 	$duration = ((int)$matches[1] * 3600) + ((int)$matches[2] * 60) + (int)$matches[3];
 	return $duration;
 }
@@ -222,11 +223,11 @@ function convertAsfToMp4($asf, $mp4)
 {
 	//Change current directory
 	chdir("C:/FFmpegTool/bin");
-	
+
 	//Conversion Process
 	// if($d > 30)
 	// 	return shell_exec ('ffmpeg -v quiet -y -r 2 -i "'.$asf.'" -vcodec copy -acodec copy -ss 00:00:00 -t 00:00:30 -sn "' . $mp4 . '"');
-	// else 
+	// else
 	// return shell_exec('ffmpeg -r 2 -i "' . $asf . '" "' . $mp4 . '"');
 	return shell_exec('ffmpeg  -y -i "' . $asf . '" -s:v 558x310 -b:v 110k -vcodec h264 -acodec -copy -async 1 -strict -2 "' . $mp4 . '"');
 }
@@ -255,8 +256,8 @@ function convertAsfToMp42($llma,$asf,$namafile, $mp4,$durasi,$lama,$lmpotong=20)
 	//Conversion Process
 	// if($d > 30)
 	// 	return shell_exec ('ffmpeg -v quiet -y -r 2 -i "'.$asf.'" -vcodec copy -acodec copy -ss 00:00:00 -t 00:00:30 -sn "' . $mp4 . '"');
-	// else 
-	// return 
+	// else
+	// return
 	// echo 'ffmpeg -i "'.$asf.'" -vcodec copy -acodec copy -ss '.$waktupotong.' -t 60  -s 800x400 -b:v 128k -async 1 -sn "'.$mp4.'"';
 	// echo 'ffmpeg -i "'.$asf.'" -ss '.$waktupotong.' -t '.$durasi.'  -async 1 -strict -2 "'.$mp4.'"';
 	// return shell_exec('ffmpeg -i "'.$asf.'" -ss '.$waktupotong.' -t '.$waktudurasi.'  -s 800x400 -b:v 128k -vcodec h264 -acodec copy -async 1 -strict -2 "'.$n_mp4.'"');
@@ -326,7 +327,7 @@ function getDuration($dir,$file)
 			$timeseconds = explode(".", $timeseconds);
 			$duration = $timehours[0]. ":" . $timeminutes[0]. ":" . $timeseconds[0];
 		//}
-		//else 
+		//else
 		//	$duration=$make_hexa;
 		return $file.' : '.$pre_duration;
 	}
@@ -348,12 +349,12 @@ function joinvideo($asf,$mp4,$folder,$file)
 	if(count($f)>1)
 	{
 
-		foreach ($f as $k => $v) 
+		foreach ($f as $k => $v)
 		{
 			if($v!='')
 			{
 				$asf_file=$folder.$v;
-				
+
 				$nfile=str_replace('.asf', '.mp4', $asf_file);
 				convertAsfToMp4($asf_file, $nfile);
 				$pindahasf=str_replace($dir, 'mp4', $asf_file);
@@ -373,7 +374,7 @@ function joinvideo($asf,$mp4,$folder,$file)
 		shell_exec('ffmpeg -i "concat:'.$namafile.'" -c copy -bsf:a aac_adtstoasc "'.$fileb.'"');
 		// echo '<br>';
 		$hj=explode('|', $namafile);
-		foreach ($hj as $kh => $vh) 
+		foreach ($hj as $kh => $vh)
 		{
 			// echo 'Hapus '.$vh;
 			// echo '<br>';
@@ -459,4 +460,3 @@ function cdur($durasi)
 }
 
 ?>
-

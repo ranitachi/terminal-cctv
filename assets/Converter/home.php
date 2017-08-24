@@ -1,5 +1,5 @@
 <?php
-include_once ('_Functions.php');
+include_once('_Functions.PHP');
 if(!empty($_POST))
 {
 	// f
@@ -23,7 +23,7 @@ echo '<tr>
 	<th>Action</th>
 </tr>';
 $no=1;
-foreach ($dir as $k => $v) 
+foreach ($dir as $k => $v)
 {
 	if($v!='.' && $v!='..')
 	{
@@ -33,7 +33,7 @@ foreach ($dir as $k => $v)
 			mysqli_query($kon,'insert into tbl_folder (folder,status_tampil) values("'.$v.'","1")');
 		}
 		else
-		{		
+		{
 				// echo '<pre>';
 				// print_r($row);
 				// echo '</pre>';
