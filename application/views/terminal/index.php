@@ -16,15 +16,43 @@
     <div class="col-lg-12 col-xs-12">
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#data" data-toggle="tab" aria-expanded="true">Data Terminal</a></li>
+              <li class="active"><a href="#datas" data-toggle="tab" aria-expanded="true">Data Terminal</a></li>
 
-              <li class=""><a href="#form" data-toggle="tab" aria-expanded="false">Form Add/Edit Data</a></li>
-              
+              <li class=""><a href="#forms" data-toggle="tab" aria-expanded="false">Form Add/Edit Data</a></li>
+
             </ul>
             <div class="tab-content">
-              <div class="tab-pane active" id="data"></div>
+              <div class="tab-pane active" id="datas" style="padding-top:15px;">
+                <!-- <div class="loading">
+                  <div class="loading-bar"></div>
+                  <div class="loading-bar"></div>
+                  <div class="loading-bar"></div>
+                  <div class="loading-bar"></div>
+                </div> -->
+                  <!-- <div class="spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div> -->
+                  <center>
+                    <div id="loader-data"><img src="<?=base_url()?>assets/img/loading-bl-blue.gif"></div>
+                  </center>
+                  <div id="data"></div>
+              </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane" id="form"></div>
+              <div class="tab-pane" id="forms" style="padding-top:15px;">
+                <!-- <div class="spinner">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div> -->
+                <center>
+                  <div id="loader-form"><img src="<?=base_url()?>assets/img/loading-bl-blue.gif"></div>
+                </center>
+                <div id="form"></div>
+              </div>
 
             </div>
             <!-- /.tab-content -->
@@ -36,13 +64,22 @@
 <script src="<?=base_url()?>assets/ckeditor/ckeditor.js"></script>
 <script>
   jQuery(function($){
-    $('#data').load('<?=site_url()?>terminal/data/-1');
-    $('#form').load('<?=site_url()?>terminal/form/-1');
+    $('#loader-data').show();
+    $('#loader-form').show();
+    $('#data').load('<?=site_url()?>terminal/data/-1',function(){
+      $('#loader-data').hide();
+    });
+    $('#form').load('<?=site_url()?>terminal/form/-1',function(){
+      $('#loader-form').hide();
+    });
   });
 
   function edit(id)
   {
-    $('#form').load('<?=site_url()?>terminal/form/'+id);
+    $('#loader-form').show();
+    $('#form').load('<?=site_url()?>terminal/form/'+id,function(){
+      $('#loader-form').hide();
+    });
     $('.nav-tabs a:last').tab('show');
   }
   function hapus(id)
@@ -61,11 +98,48 @@
       {
         $('div#body-alert').html('<h2>'+a+'</h2>');
         $('div#modal-alert').modal('show');
-        $('#data').load('<?=site_url()?>terminal/data/-1');
-        $('#form').load('<?=site_url()?>terminal/form/-1');
+        $('#loader-data').show();
+        $('#loader-form').show();
+        $('#data').load('<?=site_url()?>terminal/data/-1',function(){
+          $('#loader-data').hide();
+        });
+        $('#form').load('<?=site_url()?>terminal/form/-1',function(){
+          $('#loader-form').hide();
+        });
       }
     });
     // alert(id);
+  }
+  function showvideo(terminal)
+  {
+      $('#body-info').load('<?=site_url()?>terminal/showsvideo/'+terminal);
+      $('#modal-info').modal('show');
+  }
+  function showabout(terminal)
+  {
+      $('#body-info').load('<?=site_url()?>terminal/showabout/'+terminal);
+      $('#modal-info').modal('show');
+  }
+  function showschedule(terminal)
+  {
+      $('#body-info').load('<?=site_url()?>terminal/showschedule/'+terminal,function(){
+        if ( $.fn.dataTable.isDataTable( '#jadwal-table' ) ) {
+          table = $('#jadwal-table').DataTable();
+        }
+        else {
+            table = $('#jadwal-table').DataTable({
+              'paging'      : false,
+              'lengthChange': true,
+              'searching'   : false,
+              'ordering'    : true,
+              'info'        : false,
+              'autoWidth'   : true,
+              // 'scrollY'    : '330px',
+              // 'scrollCollapse':false
+            });
+        }
+      });
+      $('#modal-info').modal('show');
   }
   function showmap(terminal,lat,lng)
   {
@@ -97,5 +171,26 @@
       $('#modal-info').modal('show');
     }
   }
+  function BrowseServer( startupPath, functionData )
+	{
+		var finder = new CKFinder();
+		finder.basePath = '<?=base_url()?>assets/ckfinder/';
+		finder.startupPath = startupPath;
+		finder.selectActionFunction = SetFileField;
+		finder.selectActionData = functionData;
+		finder.removePlugins = 'basket';
+		//finder.selectThumbnailActionFunction = ShowThumbnails;
+		finder.popup();
+	}
+
+	function SetFileField( fileUrl, data )
+	{
+		document.getElementById( data["selectActionData"] ).value = fileUrl;
+		var f=fileUrl.split('/');
+		var x=f.length;
+		var file = f[x-1];
+		$('#gambar_t').val(file);
+    $('div#foto').css({'background-image':'url("'+fileUrl+'")'});
+	}
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYzgG72G3M3HVGRdzkvtvO5c4N7lmIuiY"></script>

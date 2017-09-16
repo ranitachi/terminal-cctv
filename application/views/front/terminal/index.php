@@ -16,51 +16,51 @@
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('purabaya')">
 		         	<div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1186@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 534.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('giwangan')">
 		         	<div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1187@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 535.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('tirtonadi')">
 		         	<div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1188@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 536.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('soekarno')">
 		         	<div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1189@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 537.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('arjosari')">
 		         	 <div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1190@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 538.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
              <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
@@ -71,41 +71,41 @@
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('cilacap')">
 		         	 <div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1194@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 539.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('bawen')">
 		         	 <div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1192@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 541.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('sukabumi')">
 		         	 <div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1191@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/Group 542.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
 		         <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2" style="cursor: pointer" onclick="detail('wonogiri')">
 		         	 <div class="row">
 			         <div class="col-lg-12">
-			         	<img src="<?=base_url()?>assets/img/png/Group 533.png">
+			         	<img src="<?=base_url()?>assets/img/png/Group 1193@2x.png" style="width:90%">
 			         </div>
-			         <div class="col-lg-12">
+			         <!-- <div class="col-lg-12">
 		         		<img src="<?=base_url()?>assets/img/png/terminal-wonogiri.png">
-			         </div>
+			         </div> -->
 		         	</div>
 		         </div>
              <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
@@ -117,6 +117,7 @@
 	      </div>
     </section>
 </div>
+<?=$this->load->view('front/layout/footer','',true)?>
 </div>
 <div id="terminal-mobile">
 <?=$this->load->view('mobile/terminal/index','',true)?>

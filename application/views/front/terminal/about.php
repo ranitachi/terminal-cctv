@@ -2,10 +2,10 @@
  <div class="content-wrapper">
     <section class="content" style="padding-top: 0px !important;">
     	<div class="row">
-    		<div class="col-lg-4 bg">
+    		<div class="col-lg-4 col-md-4 bg">
           <div class="row">
-              <div class="col-lg-3">&nbsp;</div>
-              <div class="col-lg-9">
+              <div class="col-lg-3 col-md-3">&nbsp;</div>
+              <div class="col-lg-9 col-md-9" style="text-align:center;">
                       <?
                       if(strtolower($terminal)=='giwangan')
                           $img='Group 1107.png';
@@ -26,28 +26,38 @@
                       else if(strtolower($terminal)=='wonogiri')
                           $img='terminal-wonogiri_2.png';
                       ?>
-      					<img src="<?=base_url()?>assets/img/png/<?=$img?>" style="margin-top: 40px;">
+      					<img src="<?=base_url()?>assets/img/png/<?=$img?>" style="height:110px;text-align:center;margin-top:20px;">
       				</div>
           </div>
     			<div class="row"  style="margin-top: 20px;">
     				<?=$this->load->view('front/terminal/menu','',true)?>
     			</div>
     		</div>
-    		<div class="col-lg-1">&nbsp;</div>
-    		<div class="col-lg-6">
+    		<div class="col-lg-1 col-md-1">&nbsp;</div>
+    		<div class="col-lg-6 col-md-6">
     			<div class="row">
-    				<div class="col-lg-12" style="margin-top: 20px;text-align: center;">
-    					<h2><span class="border-warna-bottom">About <?=ucwords($terminal)?></span></h2>
+            <h4 class="fa fa-circle-o-notch fa-spin-custom spinner"></h4>
+    				<div class="col-lg-12" style="margin-top: 10px;text-align: center;">
+    					<div style="width:100%;border-bottom:10px solid #ffd800;color:gray;font-size:30px;margin-top:10px;color:#95989a !important;text-shadow:2px 2px 4px #ddd;">Tentang Terminal <?=ucwords($terminal)?></div>
+              <!-- <h2><span class="border-warna-bottom">About <?=ucwords($terminal)?></span></h2> -->
     				</div>
-    				<div class="col-lg-12" style="margin-top: 15px;">
-    					 <h4 style="line-height: 21px"><?=count($term)!=0 ? $term->about_us: ''?></h4>
+    				<div class="col-lg-12" style="margin-top: 15px;text-align:justtify !important">
+              <div style="width:200px;padding:5px;border:1px solid #ddd;float:right;margin-left:10px;text-align:center;">
+                <?=count($term)!=0 ? '<img src="'.$term->foto_kepala.'" style="width:188px;height:188px">': ''?>
+                <br>
+                <small>Kepala Terminal </small>
+                <br>
+                <b><?=$term->nama_kepala?></b>
+              </div>
+              <div style="text-align:justify;"><?=count($term)!=0 ? $term->about_us: ''?></div>
     				</div>
     			</div>
     		</div>
-    		<div class="col-lg-1">&nbsp;</div>
+    		<div class="col-lg-1 col-md-1">&nbsp;</div>
     	</div>
     </section>
 </div>
+<?=$this->load->view('front/layout/footer','',true)?>
 </div>
 
 <div id="about-mobile">

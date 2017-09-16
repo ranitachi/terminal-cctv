@@ -12,6 +12,11 @@ class Admin extends Welcome {
 
 	public function index()
 	{
+		$us=$this->session->userdata('user');
+		if($us->level!=1)
+		{
+			redirect('admin/terminal','redirect');
+		}
     $data['menu']='home';
 		$data['konten']='admin/isi/index';
 		$term=$this->db->from('tbl_terminal')->where('status_tampil','1')->get()->result();

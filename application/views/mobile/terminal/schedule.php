@@ -38,63 +38,67 @@
            </center>
            <div class="row">
              <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 center">
-               <h3><span class="">Schedule <?=ucwords($terminal)?></span></h3>
+               <h3><span class="">Jadwal Terminal <?=ucwords($terminal)?></span></h3>
              </div>
              <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12" style="padding:0 20px">
-               <table class="table table-hover table-bordered table-striped">
-                 <thead>
+               <div style="max-height:400px;overflow: scroll;overflow-x: hidden;">
+                 <table class="table table-hover table-bordered table-striped">
+                   <thead>
+                     <tr>
+                     <th rowspan="2">No</th>
+                     <th colspan="3">Kedatangan</th>
+                   </tr>
                    <tr>
-                   <th rowspan="2">No</th>
-                   <th colspan="3">Kedatangan</th>
-                 </tr>
-                 <tr>
-                   <th>Tujuan</th>
-                   <th>Waktu</th>
-                   <th>Operator</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <?
-                 $no=1;
-                 foreach ($d as $k => $v) {
-                   echo '<tr>';
-                   echo '<td>'.$no.'</td>';
-                   echo '<td>'.$v->tujuan_datang.'</td>';
-                   echo '<td>'.$v->waktu_datang.'</td>';
-                   echo '<td>'.$v->operator_datang.'</td>';
-                   echo '</tr>';
-                   $no++;
-                 }
-                 ?>
-               </tbody>
-              </table>
-               <table class="table table-hover table-bordered table-striped">
-                 <thead>
+                     <th>Tujuan</th>
+                     <th>Waktu</th>
+                     <th>Operator</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <?
+                   $no=1;
+                   foreach ($d as $k => $v) {
+                     echo '<tr>';
+                     echo '<td>'.$no.'</td>';
+                     echo '<td>'.$v->tujuan_datang.'</td>';
+                     echo '<td>'.$v->waktu_datang.'</td>';
+                     echo '<td>'.$v->operator_datang.'</td>';
+                     echo '</tr>';
+                     $no++;
+                   }
+                   ?>
+                 </tbody>
+                </table>
+              </div>
+              <div style="max-height:400px;overflow: scroll;overflow-x: hidden;">
+                 <table class="table table-hover table-bordered table-striped">
+                   <thead>
+                     <tr>
+                     <th rowspan="2">No</th>
+                     <th colspan="3">Keberangkatan</th>
+                   </tr>
                    <tr>
-                   <th rowspan="2">No</th>
-                   <th colspan="3">Keberangkatan</th>
-                 </tr>
-                 <tr>
-                   <th>Tujuan</th>
-                   <th>Waktu</th>
-                   <th>Operator</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <?
-                 $no=1;
-                 foreach ($d as $k => $v) {
-                   echo '<tr>';
-                   echo '<td>'.$no.'</td>';
-                   echo '<td>'.$v->tujuan_berangkat.'</td>';
-                   echo '<td>'.$v->waktu_berangkat.'</td>';
-                   echo '<td>'.$v->operator_berangkat.'</td>';
-                   echo '</tr>';
-                   $no++;
-                 }
-                 ?>
-               </tbody>
-              </table>
+                     <th>Tujuan</th>
+                     <th>Waktu</th>
+                     <th>Operator</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <?
+                   $no=1;
+                   foreach ($d as $k => $v) {
+                     echo '<tr>';
+                     echo '<td>'.$no.'</td>';
+                     echo '<td>'.$v->tujuan_berangkat.'</td>';
+                     echo '<td>'.$v->waktu_berangkat.'</td>';
+                     echo '<td>'.$v->operator_berangkat.'</td>';
+                     echo '</tr>';
+                     $no++;
+                   }
+                   ?>
+                 </tbody>
+                </table>
+              </div>
      				</div>
            </div>
          <!-- <div class="bg"></div> -->

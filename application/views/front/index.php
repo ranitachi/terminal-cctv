@@ -27,7 +27,8 @@
   <link rel="stylesheet" href="<?=base_url()?>assets/plugins/daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?=base_url()?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/datatables/dataTables.bootstrap.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -42,13 +43,14 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="<?=base_url()?>assets/dist/js/jquery-ui.min.js"></script>
 <script src="<?=base_url()?>assets/bootstrap/js/bootstrap.min.js"></script>
-<body class="hold-transition skin-blue sidebar-collapse">
-<div class="wrapper">
+<script src='<?=base_url()?>assets/dist/js/swipe.js'></script>
+<body class="hold-transition skin-blue sidebar-collapse" style="">
+<div class="wrapper" style="background-color:#fff;">
   <div id="normal">
     <?=$this->load->view('front/layout/header','',true)?>
     <?=$this->load->view('front/layout/sidebar','',true)?>
     <?=$this->load->view($konten,'',true)?>
-    <?=$this->load->view('front/layout/footer','',true)?>
+
   </div>
   <div id="mobile">
     <?=$this->load->view('mobile/layout/header','',true)?>
@@ -58,6 +60,37 @@
   </div>
 
 </div>
+<style>
+h4.spinner {
+  font-size:30px;
+  font-weight:bold;
+  color:white;
+}
+.fa-spin-custom, .glyphicon-spin {
+  -webkit-animation: spin 500ms infinite linear;
+  animation: spin 500ms infinite linear;
+}
+@-webkit-keyframes spin {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+  }
+}
+</style>
 <!-- ./wrapper -->
 
 <!-- jQuery 3.1.1 -->
@@ -79,8 +112,10 @@
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="<?=base_url()?>assets/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
 <script src="<?=base_url()?>assets/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- datepicker -->
+<script src="<?=base_url()?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?=base_url()?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="<?=base_url()?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
@@ -96,6 +131,7 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYzgG72G3M3HVGRdzkvtvO5c4N7lmIuiY&callback=allsite"></script>
 </body>
 </html>
+<?=$this->load->view('front/layout/modal','',true)?>
 <style type="text/css">
 #normal,#main-normal,#news-normal,#terminal-normal
 {

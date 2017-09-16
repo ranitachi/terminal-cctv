@@ -29,6 +29,48 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Nama Kepala Terminal</label>
+
+                  <div class="col-sm-10 col-lg-3">
+                    <input name="nama_kepala" type="text" value="<?=$id!=-1 ? $d[0]->nama_kepala : ''?>" class="form-control" id="inputEmail3" placeholder="Nama Kepala">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Foto Kepala Terminal</label>
+
+                  <div class="col-sm-4">
+                    <div class="input-group input-group-sm">
+                      <input type="hidden" class="form-control" readonly="readonly" placeholder=""  id="gambar_t">
+                      <input type="text" class="form-control" readonly="readonly" placeholder=""  name="foto_kepala" id="gambar" value="<?=$id!=-1 ? $d[0]->foto_kepala : ''?>">
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-info btn-flat" onclick="BrowseServer( 'Image:/', 'gambar' );"><i class="fa fa-search"></i></button>
+                          </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <?
+                    $bgr='';
+                    if($id!=-1)
+                    {
+                      $bgr='background-image:url(\''.$d[0]->foto_kepala.'\');';
+                    }
+                    ?>
+                    <div style="<?=$bgr?>position:absolute;padding:4px;width:150px;border:1px solid #ddd;right:15px;height:150px;background-size:100% 100%" id="foto"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Video Profil Terminal</label>
+
+                  <div class="col-sm-4">
+                    <div class="input-group input-group-sm">
+                      <input type="text" class="form-control" readonly="readonly" placeholder=""  name="video_profile" id="vp" value="<?=$id!=-1 ? $d[0]->video_profile : ''?>">
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-info btn-flat" onclick="BrowseServer( 'Files:/', 'vp' );"><i class="fa fa-search"></i></button>
+                          </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label for="inputPassword3" class="col-sm-2 control-label">Contact</label>
 
                   <div class="col-sm-10 col-lg-5">

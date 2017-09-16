@@ -60,6 +60,8 @@ class Config extends Welcome {
   }
   function videodata($id=-1)
   {
+    $us=$this->session->userdata('user');
+    // $data['user']=$us[0];
     if($id!=-1)
     {
       $d=$this->db->from('tbl_video_profile')->where('id',$id)->get()->result();
@@ -69,6 +71,7 @@ class Config extends Welcome {
 
     $data=[
       'd'=>$d,
+      'user'=>$us,
       'id'=>$id
     ];
     $this->load->view('config/video-data',$data);
@@ -114,6 +117,14 @@ class Config extends Welcome {
             echo 'Data Video Profile Berhasil Di Tambah';
           else
             echo 'Data Video Profile Gagal Di Tambah';
+        }
+
+        if(!empty($_POST['video']))
+        {
+    			$ff=explode('/',$_POST['video']);
+    			$file=$ff[count($ff)-1];
+    			$this->convertvideo($file);
+    			$this->resizevideo($file);
         }
     }
     else
@@ -185,7 +196,8 @@ class Config extends Welcome {
     if($this->session->userdata('logged')=='true')
     {
       $admin=-1;
-      $t=$this->db->from('tbl_terminal')->where('status_tampil','1')->where('id',$us->terminal_id)->order_by('nama_terminal','asc')->get()->result();
+      if($user->level!=1)
+        $t=$this->db->from('tbl_terminal')->where('status_tampil','1')->where('id',$us->terminal_id)->order_by('nama_terminal','asc')->get()->result();
     }
 
     $data=[

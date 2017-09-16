@@ -2,10 +2,10 @@
  <div class="content-wrapper">
     <section class="content" style="padding-top: 0px !important;">
         <div class="row">
-            <div class="col-lg-4 bg">
+            <div class="col-lg-4 col-md-4 bg">
                 <div class="row">
-                    <div class="col-lg-3">&nbsp;</div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-3 col-md-2 col-sm-1">&nbsp;</div>
+                    <div class="col-lg-9 col-md-9" style="text-align:center;">
                             <?
                             if(strtolower($terminal)=='giwangan')
                                 $img='Group 1107.png';
@@ -26,27 +26,27 @@
                             else if(strtolower($terminal)=='wonogiri')
                                 $img='terminal-wonogiri_2.png';
                             ?>
-            					<img src="<?=base_url()?>assets/img/png/<?=$img?>" style="margin-top: 40px;">
+            					<img src="<?=base_url()?>assets/img/png/<?=$img?>" style="height:110px;text-align:center;margin-top:20px;">
             				</div>
                 </div>
                 <div class="row"  style="margin-top: 20px;">
                     <?=$this->load->view('front/terminal/menu','',true)?>
                 </div>
             </div>
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-6">
+            <div class="col-lg-1 col-md-1">&nbsp;</div>
+            <div class="col-lg-6 col-md-6">
                 <div class="row">
-                    <div class="col-lg-12" style="margin-top: 20px;text-align: center;">
-                        <h2><span class="border-warna-bottom">Terminal <?=ucwords($terminal)?> Contact</span></h2>
+                  <div class="col-lg-12" style="margin-top: 10px;text-align: center;">
+                    <div style="width:100%;border-bottom:10px solid #ffd800;color:gray;font-size:30px;margin-top:10px;color:#95989a !important;text-shadow: 2px 2px 4px #ddd;">Kontak Terminal <?=ucwords($terminal)?></div>
                     </div>
-                   <div class="col-lg-9" style="margin-top: 15px;">
+                   <div class="col-lg-9 col-md-8" style="margin-top: 15px;">
                       <div id="map_wrapper">
                         <div id="map_canvas"></div>
                       </div>
                     </div>
-                    <div class="col-lg-3" style="margin-top: 15px;height:400px;">
-                      <div style="position: absolute;bottom: 0;">
-                        <h3>Contact Detail</h3>
+                    <div class="col-lg-3 col-md-4" style="margin-top: 15px;height:400px;">
+                      <div style="position: absolute;top: 0;vertical-align:top;">
+                        <h4>Kontak Detail</h4>
                         <?
                         if(count($term)!=0)
                           echo $term->contact;
@@ -55,10 +55,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-1 col-md-1">&nbsp;</div>
         </div>
     </section>
   </div>
+  <?=$this->load->view('front/layout/footer','',true)?>
 </div>
 
 <div id="contact-mobile">

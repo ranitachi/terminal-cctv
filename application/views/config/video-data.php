@@ -30,13 +30,13 @@
                 echo '<tr>';
                 echo '<td style="text-align:center">'.($k+1).'</td>';
                 echo '<td style="text-align:left"><b>'.($v->judul).'</b><br>'.tgl_indo($v->tanggal).'</td>';
-                echo '<td style="text-align:center">
-                  <video width="400" height="240" controls src="'.$v->video.'" type="video/mp4"></video>
-                </td>';
-                echo '<td style="text-align:center">
-                  <button class="btn btn-xs btn-primary" onclick="edit(\''.$v->id.'\')"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-xs btn-danger" onclick="hapus(\''.$v->id.'\')"><i class="fa fa-trash"></i></button>
-                </td>';
+                echo '<td style="text-align:center"></td>';
+                echo '<td style="text-align:center;width:100px">
+                  <button class="btn btn-xs btn-primary" onclick="edit(\''.$v->id.'\')"><i class="fa fa-edit"></i></button>';
+
+                  echo '<button class="btn btn-xs btn-danger" onclick="hapus(\''.$v->id.'\')"><i class="fa fa-trash"></i></button>';
+                
+                echo '</td>';
                 echo '</tr>';
               }
               ?>

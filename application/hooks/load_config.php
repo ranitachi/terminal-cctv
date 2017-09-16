@@ -101,11 +101,13 @@ function load_config()
 
 
 	$term=$ci->db->from('tbl_terminal')->where('status_tampil','1')->order_by('nama_terminal')->get()->result();
-	$t=array();
+	$t=$ter=array();
 	foreach ($term as $k => $v)
 	{
 		$t[$v->id]=$v;
+		$ter[strtolower($v->nama_terminal)]=$v;
 	}
+	$ci->config->set_item('nama_terminal',$ter);
 	$ci->config->set_item('terminal',$t);
 
 	if (!$ci->db->field_exists('tujuan_datang', 'tbl_schedule'))
@@ -153,6 +155,27 @@ function load_config()
 			$fields = array(
 						'alamat' => array(
 							'type' => 'TEXT'
+							)
+		);
+		$ci->dbforge->add_column('tbl_terminal', $fields);
+	}
+
+	if (!$ci->db->field_exists('foto_kepala', 'tbl_terminal'))
+	{
+			$fields = array(
+						'foto_kepala' => array(
+							'type' => 'varchar',
+							'constraint' => '255'
+							)
+		);
+		$ci->dbforge->add_column('tbl_terminal', $fields);
+	}
+	if (!$ci->db->field_exists('nama_kepala', 'tbl_terminal'))
+	{
+			$fields = array(
+						'nama_kepala' => array(
+							'type' => 'varchar',
+							'constraint' => '255'
 							)
 		);
 		$ci->dbforge->add_column('tbl_terminal', $fields);

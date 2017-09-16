@@ -1,0 +1,33 @@
+1. Tampilan Web pada Beranda tidak perlu ada scroll di samping kanan
+    Status : [OK]
+2. Pada menu Beranda, Terminal, dan Berita diberikan tanda pemisah
+    Status : [OK]
+3. Warna Garis kuning pada halaman detail terminal disamakan,,
+    Status : [OK] untuk huruf tulisan sepertinya sudah sama, bedanya hanya di CapsLock
+4. Foto Kepala Terminal di halaman Tentang Terminal
+    Status : [OK]
+5. Link gambar pada berita bisa di Klik
+    Status : [OK]
+6. Tampilan berita lebih dari 3 berantakan
+    Status : [OK]
+7. Jumlah Jadwal maksimal 9 dan bisa di sort
+    Status : [On Progress]
+8. Icon Terminal Di Ganti
+    Status : [OK]
+9. Tampilan Default 90%
+    Status : [OK]
+10. Zoom Out Web
+    Status : [On Progress] - Tidak Dapat buatkan seperti request, karena yg request menggunakan Fix Width (lebar tetap),
+    sedangkan yg web terinal menggunakan Persentase lebar layar
+
+ADMIN PUSAT
+1. Video bisa ukuran besar dan bisa video apapun
+    Status : [OK] - maksimal ukuran 200MB dan bisa video : asf,avi,flv,mov,mp4,mpc,mpeg,mpg,rmi,rmvb,swfwav,wma,wmv
+
+ADMIN USER
+1. Pada halaman admin user di setiap terminal, untuk menu home, cctv, user, dan berita di hapus.
+    Status : [OK]
+2. Pada button video profil dan shedule belum berfungsi, untuk button delete di hapus saja.
+    Status : [On Progress]
+3. Pada menu terminal di tambah kan menu upload foto dan edit nama kepala terminal.
+    Status : [OK]

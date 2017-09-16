@@ -14,30 +14,37 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
+      <?
+      if($user->level==1)
+      {
+      ?>
       <li class="<?=$menu=='home' ? 'active' : ''?>">
         <a href="<?=site_url()?>admin"><i class="fa fa-home"></i> <span>Home</span></a>
       </li>
+      <?
+      }
+      ?>
       <li class="<?=$menu=='terminal' ? 'active' : ''?>">
         <a href="<?=site_url()?>admin/terminal"><i class="fa fa-automobile"></i> <span>Terminal</span></a>
       </li>
 
+      <?
+      if($user->level==1)
+      {
+        ?>
         <li class="<?=$menu=='cctv' ? 'active' : ''?>">
           <a href="<?=site_url()?>admin/cctv"><i class="fa fa-video-camera"></i> <span>CCTV</span></a>
         </li>
-    <?
-    if($user->level==1 || $user->level==3)
-    {
-    ?>
       <li class="<?=$menu=='user' ? 'active' : ''?>">
         <a href="<?=site_url()?>admin/user"><i class="fa fa-users"></i> <span>User</span></a>
+      </li>
+      <li class="<?=$menu=='news' ? 'active' : ''?>">
+        <a href="<?=site_url()?>admin/news"><i class="fa fa-newspaper-o"></i> <span>Berita</span></a>
       </li>
       <?
 
     }
     ?>
-      <li class="<?=$menu=='news' ? 'active' : ''?>">
-        <a href="<?=site_url()?>admin/news"><i class="fa fa-newspaper-o"></i> <span>Berita</span></a>
-      </li>
       <li class="<?=$menu=='schedule' ? 'active' : ''?>">
         <a href="<?=site_url()?>admin/schedule"><i class="fa fa-calendar"></i> <span>Schedule</span></a>
       </li>

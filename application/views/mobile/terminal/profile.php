@@ -38,7 +38,7 @@
            </center>
            <div class="row">
              <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 center">
-               <h3><span class="">Video Profile</span></h3>
+               <h3><span class="">Profil Video</span></h3>
              </div>
              <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12" style="padding:0 20px">
      					 <img src="<?=base_url()?>assets/img/png/Group 918.png" style="width: 100%">

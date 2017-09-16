@@ -42,8 +42,9 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="<?=base_url()?>assets/dist/js/jquery-ui.min.js"></script>
 <script src="<?=base_url()?>assets/bootstrap/js/bootstrap.min.js"></script>
+
 <body class="hold-transition skin-blue sidebar-collapse">
-<div class="wrapper">
+<div class="wrapper" >
   <?=$this->load->view('mobile/layout/header','',true)?>
   <?=$this->load->view('mobile/layout/sidebar','',true)?>
   <?=$this->load->view($konten,'',true)?>

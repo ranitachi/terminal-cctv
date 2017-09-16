@@ -1,5 +1,5 @@
 <?
-$json='';
+// $json='';
 // echo '<pre>';
 // print_r($jumlahcctv[$idxcctv]);
 // echo '</pre>';
@@ -30,7 +30,7 @@ $json='';
     		<div class="col-lg-4 col-md-4 bg">
     			<div class="row">
     				<div class="col-lg-3 col-md-3">&nbsp;</div>
-    				<div class="col-lg-9 col-md-9">
+            <div class="col-lg-9 col-md-9" style="text-align:center;">
                     <?
                     if(strtolower($terminal)=='giwangan')
                         $img='Group 1107.png';
@@ -51,8 +51,8 @@ $json='';
                     else if(strtolower($terminal)=='wonogiri')
                         $img='terminal-wonogiri_2.png';
                     ?>
-    					<img src="<?=base_url()?>assets/img/png/<?=$img?>" style="margin-top: 40px;">
-    				</div>
+              <img src="<?=base_url()?>assets/img/png/<?=$img?>" style="height:110px;text-align:center;margin-top:20px;">
+            </div>
     			</div>
     			<div class="row"  style="margin-top: 20px;">
     				<?=$this->load->view('front/terminal/menu','',true)?>
@@ -61,67 +61,67 @@ $json='';
     		<div class="col-lg-1 col-md-1">&nbsp;</div>
     		<div class="col-lg-6 col-md-6">
     			<div class="row">
+
                 <?
-
                 $js=str_replace(array('[[',']]','"'), '', $json);
-
+                // echo $js;
                 ?>
                     <script type="text/javascript">
 
-
+                        var json;
+                        var x='<?php echo $js;?>';
+                        json = x.split(',');
+                        // alert(json.length);
                         jQuery(function($){
 
-                            // var x='<?php echo $js;?>';
-                            // var json = x.split(',');
-                            // // alert(x);
+                            // alert(json.length);
                             // // for(var i=0;i<json.length;i++)
                             // // {
                             //    $('#datavideo').val(json);
-                            //     var video_index=0;
-                            //     var file=json[video_index];
-                            //     var ff=file.split('\\');
-                            //     var fl=ff[(ff.length) - 3]+'__'+ff[(ff.length) - 1];
-                            //         // file=file.replace(/\\/g,'__');
-                            //     file=fl.replace(/ /g,'%20');
-                            //     $('#playvideo').load('<?php echo site_url(); ?>terminalku/playvideo/<?=$kd?>/<?=$terminal?>/'+video_index+'/'+file);
+                                var video_index=0;
+                                var file=json[video_index];
+                                var ff=file.split('\\');
+                                // var fldr=ff[(ff.length) - 3]+'__'+ff[(ff.length) - 1];
+                                var fldr=ff[(ff.length) - 3];
+                                var fl=ff[(ff.length) - 1];
+                                    // file=file.replace(/\\/g,'__');
+                                file=fl.replace(/ /g,'%20');
+                                // alert(file);
+                                // $('#playvideo').load('<?php echo site_url(); ?>terminalku/playvideo/<?=$kd?>/<?=$terminal?>/'+video_index+'/'+file);
+                                $('#playvideo').load('<?php echo site_url(); ?>terminalku/cobaplayvideo/<?=$ip?>'+fldr+'/<?=$kd?>/<?=$terminal?>/'+file+'/'+video_index);
                             //     // alert(file);
                         })
 
-                            function onVideoEnded(indexs,folder)
+                            function onVideoEnded(index,folder)
                             {
-                                var json=$('#datavideo').val();
-                                var dt=json.split(',');
-                                var index=parseInt(indexs);
-                                // alert(dt[1]);
-                                var idx=index;
-                                if(typeof(dt[index+1]) != 'undefined')
-                                {
-                                    var idx=index+1;
-                                    if(idx==1)
-                                    {
-
-                                    }
-                                }
-                                else
-                                {
-                                    // var idx=0;
-                                    location.href='<?php echo site_url();?>terminal/detail/<?php echo $terminal;?>/<?php echo $idxcctv; ?>';
-                                }
-                                var file=dt[idx];
-                                // alert(index+'--'+idx+'==+'+file);
-
+                              // alert(json[1]+'--'+json[0]);
+                              if(json.length==index)
+                              {
+                                index=0;
+                              }
+                                var file=json[index];
                                 var ff=file.split('\\');
-                                var fl=ff[(ff.length) - 3]+'__'+ff[(ff.length) - 1];
-                                file=fl.replace(/ /g,'%20');
-                                $('#playvideo').load('<?php echo site_url(); ?>terminalku/playvideo/<?=$kd?>/<?=$terminal?>/'+idx+'/'+file);
-                           }
+                                // var fldr=ff[(ff.length) - 3]+'__'+ff[(ff.length) - 1];
+                                var fl=ff[(ff.length) - 1];
+                                    // file=file.replace(/\\/g,'__');
+                                filename=fl.replace(/ /g,'%20');
+                                $('#playvideo').load('<?php echo site_url(); ?>terminalku/cobaplayvideo/<?=$ip?>'+folder+'/<?=$kd?>/<?=$terminal?>/'+filename+'/'+index);
+                            }
                         </script>
+            <?
+            // echo $idxcctv;
+            // echo count($jumlahcctv[$idxcctv]);
+            // echo '<pre>';
+            // print_r($jumlahcctv[$idxcctv]);
+            // echo '</pre>';
+            ?>
     				<div class="col-lg-12" style="margin-top: 20px;">
+
     					<div style="background: url('<?=base_url()?>assets/img/png/garis.png') no-repeat;height: 36px;width: 100%;text-align: center;padding-top: 10px;background-size: 100% 100%;font-size: 18px"><b>CCTV <?=($idxcctv+1)?></b> - <?=(isset($jumlahcctv[$idxcctv]['tblcctv']) ?  $jumlahcctv[$idxcctv]['nama_cctv'] : $jumlahcctv[$idxcctv]->nama_kamera)?></div>
     				</div>
     				<div class="col-lg-12" style="margin-top: 15px;text-align: center;">
     					<!-- <img src="<?=base_url()?>assets/img/png/video.png" style="width: 100%"> -->
-                        <div id="playvideo" style="padding: 2px 0px;border :1px solid #222;width:560px;height: 315px;background-size: 100% 100%; margin:0 auto;background:#000;"></div>
+                        <div id="playvideo"></div>
                         <input type="hidden" id="datavideo">
     				</div>
     				<div class="col-lg-12" style="margin-top: 25px;">
@@ -161,9 +161,10 @@ $json='';
     	</div>
     </section>
   </div>
+  <?=$this->load->view('front/layout/footer','',true)?>
 </div>
 <div id="cctv-mobile">
-  <?=$this->load->view('mobile/terminal/detail','',true)?>
+  <? //$this->load->view('mobile/terminal/detail','',true)?>
 </div>
 <style type="text/css">
     .bg

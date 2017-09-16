@@ -2,7 +2,7 @@
    <!-- Logo -->
 
    <!-- Header Navbar: style can be found in header.less -->
-   <nav class="navbar navbar-static-top bg-warna" style="margin-left: 0px !important;min-height: 130px !important">
+   <nav class="navbar navbar-static-top bg-warna" style="margin-left: 0px !important;min-height: 103px !important">
      <!-- Sidebar toggle button-->
      <!-- <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
        <span class="sr-only">Toggle navigation</span>
@@ -26,7 +26,7 @@
          <ul class="nav" style="display:block;margin:0 auto !important;font-size: 15px !important;">
              <li style="width:33%;float:left;border-right:#1d2983 solid 1px"  class="<?=($mn=='' ? 'active' : '')?>"><a href="<?=base_url()?>" class="warna">BERANDA</a></li>
              <li style="width:33%;float:left;border-right:#1d2983 solid 1px" class="<?=($mn=='terminal' ? 'active' : '')?>"><a href="<?=site_url()?>terminal" class="warna">TERMINAL</a></li>
-             <li style="width:33%;float:left" class="<?=($mn=='news' ? 'active' : '')?>"><a href="<?=site_url()?>news" class="warna">BERITA</a></li>
+             <li style="width:33%;float:left" class="<?=($mn=='news' ? 'active' : '')?>"><a href="<?=site_url()?>berita" class="warna">BERITA</a></li>
            </ul>
          </center>
        </div>

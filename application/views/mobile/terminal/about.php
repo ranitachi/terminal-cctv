@@ -38,10 +38,18 @@
            </center>
            <div class="row">
              <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 center">
-               <h3><span class="">About <?=ucwords($terminal)?></span></h3>
+               <h3><span class="">Tentang Terminal <?=ucwords($terminal)?></span></h3>
              </div>
              <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12" style="padding:0 20px">
-     					 <h4 style="line-height: 21px"><?=count($term)!=0 ? $term->about_us: ''?></h4>
+               <div style="width:200px;padding:5px;border:1px solid #ddd;float:right;margin-left:10px;text-align:center;">
+                 <?=count($term)!=0 ? '<img src="'.$term->foto_kepala.'" style="width:100%;">': ''?>
+                 <br>
+                 <small>Kepala Terminal </small>
+                 <br>
+                 <b><?=$term->nama_kepala?></b>
+               </div>
+     					 <div style="text-align:justify !important;"><?=count($term)!=0 ? $term->about_us: ''?></div>
+
      				</div>
            </div>
          <!-- <div class="bg"></div> -->

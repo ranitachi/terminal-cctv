@@ -6,7 +6,8 @@
            <center>
              <div class="row">
                <div class="col-lg-12">
-                 <img src="<?=base_url()?>assets/img/png/Group 801.png" style="height:40px;padding-top:10px;">
+                  <h3><span class="">BERITA</span></h3>
+                 <!-- <img src="<?=base_url()?>assets/img/png/Group 801.png" style="height:40px;padding-top:10px;"> -->
                </div>
              </div>
              <div class="row" style="margin-top:20px;">
@@ -23,7 +24,7 @@
                       else
                         $gbr=base_url().'assets/img/download.png';
 
-                      $judul=(strlen($v->judul) > 17 ? substr($v->judul,0,16).'...' : $v->judul);
+                      $judul=(strlen($v->judul) > 11 ? substr($v->judul,0,10).'...' : $v->judul);
                       $isi=substr(strip_tags($v->konten),0,60).' ...';
 
                      ?>
@@ -32,19 +33,19 @@
                          <div class="box-header with-border">
                            <div class="user-block">
                              <img class="img-circle" src="<?=base_url()?>assets/img/png/120x120 pixel-02.png"  alt="<?=$v->judul?>">
-                             <span class="username" style="font-size: 11px;text-align: left"><a href="<?=site_url()?>news/title/<?=cleartext($v->judul)?>"><?=$judul?></a></span>
-                             <span class="description" style="font-size: 10px;text-align: left"><?=tgl_indo($v->waktu_input)?></span>
+                             <span class="username" style="font-size: 11px;text-align: left"><a href="<?=site_url()?>berita/<?=cleartext($v->judul)?>"><?=$judul?></a></span>
+                             <span class="description" style="font-size: 10px;text-align: left"><?=tgl_indo2($v->waktu_input)?></span>
                            </div>
                            <!-- /.user-block -->
 
                            <!-- /.box-tools -->
                          </div>
                          <!-- /.box-header -->
-                         <div class="box-body">
-                           <img class="img-responsive pad" src="<?=$gbr?>" alt="Photo">
+                         <div class="box-body" style="height:200px;">
+                           <a href="<?=site_url()?>berita/<?=cleartext($v->judul)?>"><img class="img-responsive pad" src="<?=$gbr?>" alt="Photo" style="height:100px;"></a>
 
-                           <p style="font-size: 10px"><?=$isi?></p>
-                           <button type="button" class="btn btn-default btn-xs pull-right"><a href="<?=site_url()?>news/title/<?=cleartext($v->judul)?>"><i class="fa fa-share"></i> Detail</a></button>
+                           <p style="font-size: 10px;text-align:left;"><?=$isi?></p>
+                           <button type="button" class="btn btn-default btn-xs pull-right"><a href="<?=site_url()?>berita/<?=cleartext($v->judul)?>"><i class="fa fa-share"></i> Detail</a></button>
                          </div>
 
                        </div>

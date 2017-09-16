@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-include_once('Welcome.php');
-class News extends Welcome {
+// include_once('Welcome.php');
+class News extends CI_Controller {
 	public function index()
 	{
 		$d=$this->db->from('tbl_news')->where('status','1')->order_by('waktu_input','desc')->get()->result();
@@ -44,6 +44,9 @@ class News extends Welcome {
 	}
 	public function form($id=-1)
 	{
+		if($this->session->userdata('logged')!='true')
+			redirect('login','location');
+
 		$trm=$this->config->item('terminal');
 		$data['terminal']=$trm;
 		$data['id']=$id;
@@ -67,6 +70,9 @@ class News extends Welcome {
 
 	public function process($id=-1)
 	{
+		if($this->session->userdata('logged')!='true')
+			redirect('login','location');
+
 		if(!empty($_POST))
 		{
 			if($id!=-1)
@@ -103,6 +109,9 @@ class News extends Welcome {
 	}
 	public function hapus($id)
 	{
+		if($this->session->userdata('logged')!='true')
+			redirect('login','location');
+			
 		$this->db->where('id',$id);
 		$this->db->set('status','0');
 		$c=$this->db->update('tbl_news');

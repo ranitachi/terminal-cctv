@@ -5,6 +5,10 @@ class Mobile extends Terminalku {
 	public function index()
 	{
 		$data['konten']='mobile/layout/main';
+		$about=$this->db->from('tbl_aboutus')->get()->result();
+		$data['about']=$about;
+		$video=$this->db->from('tbl_video_profile')->where('status_tampil','1')->order_by('tanggal','desc')->limit(1)->get()->result();
+		$data['video']=$video;
 		$this->load->view('mobile/index',$data);
 	}
 

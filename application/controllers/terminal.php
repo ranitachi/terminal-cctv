@@ -14,14 +14,33 @@ class Terminal extends Terminalku {
 		$data['terminal']=$terminal;
 		$jlh=$this->jumlahcctv($terminal);
 		$data['jumlahcctv']=$jlh;
+		// if($cctvidx)
 		$data['idxcctv']=$cctvidx;
 
 		$wh="Lower(nama_terminal)='".$terminal."'";
 		$term=$this->db->from('tbl_terminal')->where($wh)->get()->result();
 		if(count($term)!=0)
+		{
 			$data['term']=$term[0];
+			$data['kd']=$kd=$jlh[$cctvidx]['kode'];
+			$trm=array('giwangan','tirtonadi','soekarno','purabaya');
+			if(in_array($terminal,$trm))
+			{
+				$json=$jlh[$cctvidx]['ip_cctv'].'terminal/getcctvall/'.strtolower($terminal).'/'.$kd;
+			}
+			else
+				$json=$jlh[$cctvidx]['ip_cctv'].'terminalku/index.php/terminal/getcctvall/'.strtolower($terminal).'/'.$kd;
+
+			$data['json']=file_get_contents($json);
+			$data['ip']=str_replace('http://','',$jlh[$cctvidx]['ip_cctv']);
+		}
 		else
+		{
+			$data['ip']='undefined';
+			$data['json']='undefined';
+			$data['kd']='undefined';
 			$data['term']=array();
+		}
 
 		// $dd=$
 
@@ -32,6 +51,24 @@ class Terminal extends Terminalku {
 	{
 		$data['konten']='front/terminal/profile';
 		$data['terminal']=$terminal;
+		$wh="Lower(nama_terminal)='".$terminal."'";
+		$term=$this->db->from('tbl_terminal')->where($wh)->get()->result();
+		$terminal_id=$terminal;
+		$data['d']=$term[0];
+		// $stream=new VideoStream($term[0]->video_profile);
+		// $stream->start();
+		$ff=explode('/',$term[0]->video_profile);
+		if(count($ff)>1)
+		{
+				$vid=$ff[count($ff)-1];
+		}
+		else
+		{
+				$vid='';
+		}
+		// echo $vid;
+		$data['vid']=$vid;
+
 		$this->load->view('front/index',$data);
 	}
 	function about($terminal)
@@ -90,6 +127,7 @@ class Terminal extends Terminalku {
 		$us=$this->session->userdata('user');
 		$d=$this->db->from('tbl_terminal')->where('status_tampil','1')->order_by('nama_terminal','asc')->get()->result();
 		$data['admin']=1;
+		$data['user']=$us;
 		if($this->session->userdata('logged')=='true')
 		{
 			if($us->terminal_id!=-1)
@@ -147,6 +185,14 @@ class Terminal extends Terminalku {
 				else
 					echo 'Data Terminal Gagal Di Tambah';
 			}
+
+			if(!empty($_POST['video_profile']))
+			{
+				$ff=explode('/',$_POST['video_profile']);
+				$file=$ff[count($ff)-1];
+				$this->convertvideo($file);
+				$this->resizevideo($file);
+			}
 		}
 		else {
 			echo 'Data Terminal Gagal Di Tambah';
@@ -164,6 +210,58 @@ class Terminal extends Terminalku {
 			echo  'Data Terminal Gagal Di Hapus';
 	}
 
+	public function showabout($terminal)
+	{
+		$wh="id='".$terminal."'";
+		$term=$this->db->from('tbl_terminal')->where($wh)->get()->result();
+		$terminal_id=$terminal;
+		$text='<div style="width:200px;padding:5px;border:1px solid #ddd;float:right;margin-left:10px;text-align:center;">'.(count($term)!=0 ? '<img src="'.$term[0]->foto_kepala.'" style="width:100%;">': '').'
+			<br>
+			<small>Kepala Terminal </small>
+			<br>
+			<b>'.$term[0]->nama_kepala.'</b>
+		</div>
+		<div style="text-align:justify;">'.(count($term)!=0 ? $term[0]->about_us: '').'</div>';
+		echo $text;
+	}
+	public function showschedule($terminal)
+	{
+		$wh="id='".$terminal."'";
+		$term=$this->db->from('tbl_terminal')->where($wh)->get()->result();
+		$terminal_id=$terminal;
+		$d=$this->db->from('tbl_schedule')->where('status_tampil','1')->where('terminal_id',$terminal_id)->order_by('waktu_datang,waktu_berangkat')->get()->result();
+		$data['d']=$d;
+		$this->load->view('terminal/showschedule',$data);
+	}
+	public function showsvideo($terminal)
+	{
+		$wh="id='".$terminal."'";
+		$term=$this->db->from('tbl_terminal')->where($wh)->get()->result();
+		$terminal_id=$terminal;
+		$data['d']=$term[0];
+		// $stream=new VideoStream($term[0]->video_profile);
+		// $stream->start();
+		$ff=explode('/',$term[0]->video_profile);
+		if(count($ff)>1)
+		{
+				$vid=$ff[count($ff)-1];
+		}
+		else
+		{
+				$vid='';
+		}
+		// echo $vid;
+		$data['vid']=$vid;
+		$this->load->view('terminal/showvideo',$data);
+	}
+	public function playvideoprofile($files)
+	{
+		$files=str_replace('%20', ' ', $files);
+		// $file='/opt/lampp/htdocs/terminal-cctv/assets/files/studio-install-windows.mp4';
+		$file=DIRECTORY_FOLDER.'files/'.$files;
+		$stream=new VideoStream($file);
+		$stream->start();
+	}
 	public function showmap($terminal,$lat,$lng)
 	{
 		$data['terminal']=$terminal;

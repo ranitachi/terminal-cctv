@@ -20,9 +20,11 @@
               // echo $mn;
               ?>
                 <ul class="nav" style="display:block;margin:0 auto !important;font-size: 20px !important;padding-top: 70px !important;">
-                  <li style="width:33%;float:left"  class="<?=($mn=='' ? 'active' : '')?>"><a href="<?=base_url()?>">BERANDA</a></li>
-                  <li style="width:33%;float:left" class="<?=($mn=='terminal' ? 'active' : '')?>"><a href="<?=site_url()?>terminal">TERMINAL</a></li>
-                  <li style="width:33%;float:left" class="<?=($mn=='news' ? 'active' : '')?>"><a href="<?=site_url()?>news">BERITA</a></li>
+                  <li style="width:32%;float:left;"  class="<?=($mn=='' ? 'active' : '')?>"><a href="<?=base_url()?>">BERANDA</a></li>
+                  <li style="width:1%;float:left;border-left:1px solid #eee;padding-top:10px;margin-top:5px;">&nbsp;</li>
+                  <li style="width:32%;float:left" class="<?=($mn=='terminal' ? 'active' : '')?>"><a href="<?=site_url()?>terminal">TERMINAL</a></li>
+                  <li style="width:1%;float:left;border-left:1px solid #eee;padding-top:10px;margin-top:5px;">&nbsp;</li>
+                  <li style="width:32%;float:left" class="<?=($mn=='berita' ? 'active' : '')?>"><a href="<?=site_url()?>berita">BERITA</a></li>
                 </ul>
               </center>
             </div>

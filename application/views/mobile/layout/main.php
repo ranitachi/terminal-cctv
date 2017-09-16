@@ -23,8 +23,13 @@
                </div>
                <div class="col-lg-12">
                <h5 style="width:100%;line-height: 18px;max-height:160px;overflow: scroll;overflow-x: hidden;">
-                 Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor Lorem Ipsum Sit Dolor
-               </h5>
+                 <?
+                 if(count($about)!=0)
+                 {
+                   echo $about[0]->konten;
+                 }
+                 ?>
+                </h5>
                </div>
              </div>
 
@@ -39,7 +44,7 @@
  </div>
  <div class="row" style="background-color:#fff;text-align:center">
    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-     <img src="<?=base_url()?>assets/img/png/Group 16.png"><br>
+     <img src="<?=base_url()?>assets/img/png/Group 16.png" style="cursor:pointer;"><br>
    </div>
  </div>
  <style type="text/css">
