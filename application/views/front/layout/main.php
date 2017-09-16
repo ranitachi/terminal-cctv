@@ -23,7 +23,7 @@
                   <img src="<?=base_url()?>assets/img/png/Group 14.png" style="">
                 </div>
                 <div class="col-lg-12">
-                  <h5 style="width:55%;line-height: 21px;max-height:130px;overflow: scroll;overflow-x: hidden;">
+                  <h5 style="width:60%;line-height: 22px;">
                   <?
                   if(count($about)!=0)
                   {

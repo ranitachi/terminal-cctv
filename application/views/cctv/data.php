@@ -21,6 +21,7 @@
                   <th>Kode CCTV</th>
                   <th>Nama CCTV</th>
                   <th>IP CCTV</th>
+                  <th>IP Streaming</th>
                   <th>Lihat Kamera</th>
                   <th>Terminal</th>
                   <th></th>
@@ -35,6 +36,7 @@
                 echo '<td style="text-align:center">'.($v->kode).'</td>';
                 echo '<td style="text-align:left">'.($v->nama_cctv).'</td>';
                 echo '<td style="text-align:left">'.($v->ip_cctv).'</td>';
+                echo '<td style="text-align:left">'.($v->ip_stream).'</td>';
                 echo '<td style="text-align:center"><button class="btn btn-xs btn-success" onclick="showcam(\''.$v->id_cctv.'\')"><i class="fa fa-video-camera"></i></button></td>';
                 echo '<td style="text-align:left">'.($v->nama_terminal).'</td>';
                 echo '<td style="text-align:center">

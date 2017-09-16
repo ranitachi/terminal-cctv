@@ -65,33 +65,47 @@
                 <?
                 $js=str_replace(array('[[',']]','"'), '', $json);
                 // echo $js;
+                // echo $ipstream;
                 ?>
                     <script type="text/javascript">
 
                         var json;
+
                         var x='<?php echo $js;?>';
-                        json = x.split(',');
-                        // alert(json.length);
-                        jQuery(function($){
+                        if(x!='')
+                        {
+                          json = x.split(',');
+                          // alert(json.length);
+                          jQuery(function($){
 
-                            // alert(json.length);
-                            // // for(var i=0;i<json.length;i++)
-                            // // {
-                            //    $('#datavideo').val(json);
-                                var video_index=0;
-                                var file=json[video_index];
-                                var ff=file.split('\\');
-                                // var fldr=ff[(ff.length) - 3]+'__'+ff[(ff.length) - 1];
-                                var fldr=ff[(ff.length) - 3];
-                                var fl=ff[(ff.length) - 1];
-                                    // file=file.replace(/\\/g,'__');
-                                file=fl.replace(/ /g,'%20');
-                                // alert(file);
-                                // $('#playvideo').load('<?php echo site_url(); ?>terminalku/playvideo/<?=$kd?>/<?=$terminal?>/'+video_index+'/'+file);
-                                $('#playvideo').load('<?php echo site_url(); ?>terminalku/cobaplayvideo/<?=$ip?>'+fldr+'/<?=$kd?>/<?=$terminal?>/'+file+'/'+video_index);
-                            //     // alert(file);
-                        })
-
+                              // alert(json.length);
+                              // // for(var i=0;i<json.length;i++)
+                              // // {
+                              //    $('#datavideo').val(json);
+                                  var video_index=0;
+                                  var file=json[video_index];
+                                  var ff=file.split('\\');
+                                  // var fldr=ff[(ff.length) - 3]+'__'+ff[(ff.length) - 1];
+                                  var fldr=ff[(ff.length) - 3];
+                                  var fl=ff[(ff.length) - 1];
+                                      // file=file.replace(/\\/g,'__');
+                                  file=fl.replace(/ /g,'%20');
+                                  // alert(file);
+                                  // $('#playvideo').load('<?php echo site_url(); ?>terminalku/playvideo/<?=$kd?>/<?=$terminal?>/'+video_index+'/'+file);
+                                  $('#playvideo').load('<?php echo site_url(); ?>terminalku/cobaplayvideo/<?=$ip?>'+fldr+'/<?=$kd?>/<?=$terminal?>/'+file+'/'+video_index);
+                              //     // alert(file);
+                          })
+                        }
+                        else
+                        {
+                            ipstream();
+                            setInterval(function(){ ipstream(); }, 15000);
+                        }
+                            // $('#playvideo').html('<center><h2 style="width:500px;padding:30px 0px;border:1px solid #ddd">Server CCTV Sedang Off</h2></center>');
+                            function ipstream()
+                            {
+                              $('#playvideo').load('<?=base_url()?>index.php/terminal/ipcctv/<?=$ipstream?>');
+                            }
                             function onVideoEnded(index,folder)
                             {
                               // alert(json[1]+'--'+json[0]);

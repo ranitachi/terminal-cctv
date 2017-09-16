@@ -50,6 +50,13 @@
                     <input type="text" class="form-control" id="inputEmail3" placeholder="IP CCTV"  name="ip" value="<?=$id!=-1 ? $det[0]->ip_cctv : ''?>">
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">IP Stream</label>
+
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="http://IP:PORT"  name="ip_stream" value="<?=$id!=-1 ? $det[0]->ip_stream : ''?>">
+                  </div>
+                </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

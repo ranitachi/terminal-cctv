@@ -31,11 +31,20 @@ class Terminal extends Terminalku {
 			else
 				$json=$jlh[$cctvidx]['ip_cctv'].'terminalku/index.php/terminal/getcctvall/'.strtolower($terminal).'/'.$kd;
 
-			$data['json']=file_get_contents($json);
+			$content=@file_get_contents($json);
+			if($content)
+				$data['json']=file_get_contents($json);
+			else
+				$data['json']='';
 			$data['ip']=str_replace('http://','',$jlh[$cctvidx]['ip_cctv']);
+			// echo '<pre>';
+			// print_r($jlh);
+			// echo '</pre>';
+			$data['ipstream']=str_replace('http://','',$jlh[$cctvidx]['ip_stream']);
 		}
 		else
 		{
+			$data['ipstream']='undefined';
 			$data['ip']='undefined';
 			$data['json']='undefined';
 			$data['kd']='undefined';
@@ -43,10 +52,15 @@ class Terminal extends Terminalku {
 		}
 
 		// $dd=$
-
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
 		$this->load->view('front/index',$data);
 	}
-
+	function ipcctv($url)
+	{
+		echo '<img src="http://'.$url.'/axis-cgi/mjpg/video.cgi?resolution=640x480&compression=88">';
+	}
 	function profile($terminal)
 	{
 		$data['konten']='front/terminal/profile';

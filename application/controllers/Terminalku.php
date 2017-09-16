@@ -47,6 +47,7 @@ class Terminalku extends CI_Controller {
 					$dtm[$no]['nama_cctv']=$vc->nama_cctv;
 					$dtm[$no]['folder_cctv']=$vc->folder;
 					$dtm[$no]['ip_cctv']=$vc->ip;
+					$dtm[$no]['ip_stream']=$vc->ip_stream;
 					$dtm[$no]['kode']=$vc->kode;
 					$no++;
 				}
@@ -187,7 +188,7 @@ class Terminalku extends CI_Controller {
 		$this->load->view('mobile/terminal/video');
 	}
 
-	
+
 	public function showvideo()
 	{
 		$term=$this->db->from('tbl_video_profile')->where('status_tampil','1')->order_by('id','desc')->limit(1)->get()->result();

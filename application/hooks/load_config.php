@@ -180,6 +180,16 @@ function load_config()
 		);
 		$ci->dbforge->add_column('tbl_terminal', $fields);
 	}
+	if (!$ci->db->field_exists('ip_stream', 'tbl_cctv'))
+	{
+			$fields = array(
+						'ip_stream' => array(
+							'type' => 'varchar',
+							'constraint' => '255'
+							)
+		);
+		$ci->dbforge->add_column('tbl_cctv', $fields);
+	}
 
 	if (!$ci->db->field_exists('terminal_id', 'tbl_berita'))
 	{
